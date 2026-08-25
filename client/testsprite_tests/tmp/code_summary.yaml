@@ -1,0 +1,29 @@
+version: "2"
+type: frontend
+tech_stack:
+  - react
+  - vite
+  - tailwindcss
+  - react-router-dom
+routes:
+  - path: /
+    file: src/App.jsx
+    auth_required: false
+    description: Main landing page with chatbot
+features:
+  - name: College Chatbot
+    description: An AI chatbot for answering student queries
+    files:
+      - src/components/ChatDrawer.jsx
+      - src/components/FloatingChatButton.jsx
+      - src/services/chat.service.js
+    entry_route: /
+    user_interactions:
+      - Click floating chat button to open drawer
+      - Type message in input field
+      - Send message to receive AI response
+    api_calls:
+      - method: POST
+        endpoint: /api/chat
+    auth_required: false
+known_limitations: []

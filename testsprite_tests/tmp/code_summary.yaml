@@ -1,0 +1,40 @@
+version: "2"
+type: frontend
+tech_stack:
+  - react
+  - vite
+  - tailwindcss
+  - react-router-dom
+routes:
+  - path: /
+    file: src/pages/HomePage.jsx
+    auth_required: false
+    description: College homepage with multiple informational sections and a chatbot
+features:
+  - name: Landing Page
+    description: View various college information sections
+    files:
+      - src/pages/HomePage.jsx
+      - src/components/HeroSection.jsx
+      - src/components/AboutSection.jsx
+    entry_route: /
+    user_interactions:
+      - Scroll through the homepage to view college info
+    auth_required: false
+  - name: College Chatbot
+    description: AI chatbot to answer student queries
+    files:
+      - src/components/FloatingChatButton.jsx
+      - src/components/ChatDrawer.jsx
+      - src/services/chat.service.js
+    entry_route: /
+    user_interactions:
+      - Click the floating chat button
+      - Type a message in the chat input
+      - Click send or press enter
+      - Receive an AI response
+    api_calls:
+      - method: POST
+        endpoint: /api/chat
+    auth_required: false
+known_limitations: []

@@ -1,0 +1,17 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "executionArgs": {
+    "projectName": "client",
+    "projectPath": "c:\\Users\\Asus\\Downloads\\0ad8ec1e-bdb1-4654-81dc-74cf7b5be64f_edureach-agentic-college-chatbot-final-code\\edureach-agentic-colleage-chatbot\\client",
+    "testIds": [],
+    "additionalInstruction": "",
+    "serverMode": "production",
+    "envs": {
+      "API_KEY": "sk-user-NNiCQ8wVJ_39VhEXVXNStofKicQyZIJD3jA2heLUm2z8U3hOjMBtBQpQZ9e7pIrKoSdFOs3iovCnUXbvaqrmQZW2iAivlp4gx8MOPSjnKL5yz9jLeW1CgF1QZO8V-utZ63k"
+    }
+  },
+  "serverPort": 60153
+}

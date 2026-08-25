@@ -1,0 +1,278 @@
+[
+  {
+    "id": "TC001",
+    "title": "Send a college question and receive a response",
+    "description": "This verifies that a student can open the chat on the home page, ask a college-related question, and see an AI answer in the conversation thread.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an assistant response is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the conversation history remains visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Continue a conversation with a follow-up question",
+    "description": "This verifies that a returning student can ask a follow-up question and see the assistant respond within the same conversation thread with prior messages preserved.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in an initial college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a follow-up question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the conversation includes both user messages and assistant replies"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the follow-up answer appears in the same chat thread"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Show a loading indicator while waiting for a reply",
+    "description": "This verifies that a prospective student sees the chat indicate it is working after sending a question and before the assistant reply appears.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a loading indicator is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an assistant response is displayed in the same conversation"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Reopen the chat and review prior messages",
+    "description": "This verifies that a student can close and reopen the chat drawer from the home page and still review the existing conversation history.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "action",
+        "description": "Close the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Reopen the chat interface"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify previous conversation messages are still visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the message input is available for a new question"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC005",
+    "title": "Keep the conversation visible after a new response",
+    "description": "This verifies that a student can send a question and still see the full thread, including the latest reply, without losing earlier context in the drawer.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify prior user and assistant messages are visible in the conversation area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the latest assistant reply is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC006",
+    "title": "Prevent sending an empty message",
+    "description": "This verifies that a student cannot submit an empty chat message and the conversation does not add a new message.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Send the message without entering text"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation message is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no new conversation message is added"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC007",
+    "title": "Handle rapid double send attempts safely",
+    "description": "This verifies that a student who sends the same question twice quickly does not break the chat experience or create an obviously duplicated submission.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Submit the message twice in quick succession"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the conversation remains usable after the rapid send attempt"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the assistant response appears only once for the submitted question"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC008",
+    "title": "Recover gracefully from a malformed assistant reply",
+    "description": "This verifies that the chat interface continues to display a usable conversation when the assistant response content is unexpected or malformed.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Open the chat interface"
+      },
+      {
+        "type": "action",
+        "description": "Fill in a college-related question in the message field"
+      },
+      {
+        "type": "action",
+        "description": "Send the message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the conversation remains visible and usable"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a response area is displayed for the assistant message"
+      }
+    ],
+    "priority": "Low"
+  }
+]
