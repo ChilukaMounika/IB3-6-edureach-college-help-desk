@@ -23,6 +23,7 @@ export default function App() {
       {/* Floating chat button — visible on all pages */}
       <FloatingChatButton />
       <h1>Welcome to the App!</h1>
+      <h2>hello</h2>
     </>
   );
 }
