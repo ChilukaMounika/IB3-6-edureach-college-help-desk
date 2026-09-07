@@ -24,6 +24,7 @@ export default function App() {
       <FloatingChatButton />
       <h1>Welcome to the App!</h1>
       <h2>hello</h2>
+      <h3>how are you?</h3>
     </>
   );
 }
