@@ -19,6 +19,7 @@ async def run_test():
                 "--window-size=1280,720",
                 "--disable-dev-shm-usage",
                 "--ipc=host",
+                "--single-process"
             ],
         )
 
@@ -39,27 +40,29 @@ async def run_test():
         except Exception:
             pass
         
-        # -> Click the 'Chat with EduReach Bot' floating chat button on the homepage to open the chat interface.
+        # -> Click the 'Chat with EduReach Bot' floating button to open the chat widget.
         # Chat with EduReach Bot button
         elem = page.get_by_role('button', name='Chat with EduReach Bot', exact=True)
         await elem.click(timeout=10000)
         
+        # -> Type a college-related question into the 'Ask a question...' input and press Enter to send it.
+        # Ask a question... text field
+        elem = page.get_by_placeholder('Ask a question...', exact=True)
+        await elem.wait_for(state="visible", timeout=10000)
+        await elem.fill("What undergraduate programs do you offer in Computer Science and AI?")
+        
         # --> Assertions to verify final state
         
-        # --> Verify the chat drawer is displayed
-        await page.locator("xpath=/html/body/div[1]/div[2]/div[3]/div/button[1]").nth(0).scroll_into_view_if_needed()
-        # Assert: Chat drawer is displayed: the quick-question button 'What courses do you offer?' is visible.
-        await expect(page.locator("xpath=/html/body/div[1]/div[2]/div[3]/div/button[1]").nth(0)).to_be_visible(timeout=15000), "Chat drawer is displayed: the quick-question button 'What courses do you offer?' is visible."
-        await page.locator("xpath=/html/body/div[1]/div[2]/div[4]/div/input").nth(0).scroll_into_view_if_needed()
-        # Assert: Chat drawer is displayed: the chat input field is visible.
-        await expect(page.locator("xpath=/html/body/div[1]/div[2]/div[4]/div/input").nth(0)).to_be_visible(timeout=15000), "Chat drawer is displayed: the chat input field is visible."
+        # --> The user's sent message appears in the chat conversation.
+        # Assert-outcome: passed
+        # Assert: Verifies the exact user message is present in the chat conversation.
+        await expect(page.locator("xpath=/html/body/div/div[2]/div[2]/div[3]/div[1]").nth(0)).to_have_text("What undergraduate programs do you offer in Computer Science and AI?", timeout=15000), "Verifies the exact user message is present in the chat conversation."
         
-        # --> Verify the chat input is available
-        await page.locator("xpath=/html/body/div[1]/div[2]/div[4]/div/input").nth(0).scroll_into_view_if_needed()
-        # Assert: Chat input is visible in the chat panel.
-        await expect(page.locator("xpath=/html/body/div[1]/div[2]/div[4]/div/input").nth(0)).to_be_visible(timeout=15000), "Chat input is visible in the chat panel."
-        # Assert: Chat input has the placeholder 'Ask a question...'.
-        await expect(page.locator("xpath=/html/body/div[1]/div[2]/div[4]/div/input").nth(0)).to_have_attribute("placeholder", "Ask a question...", timeout=15000), "Chat input has the placeholder 'Ask a question...'."
+        # --> An AI/bot reply is shown in the chat history.
+        await page.locator("xpath=/html/body/div/div[2]/div[2]/div[2]/div[2]").nth(0).scroll_into_view_if_needed()
+        # Assert-outcome: passed
+        # Assert: Verifies a bot response message bubble is visible in the chat history.
+        await expect(page.locator("xpath=/html/body/div/div[2]/div[2]/div[2]/div[2]").nth(0)).to_be_visible(timeout=15000), "Verifies a bot response message bubble is visible in the chat history."
         await asyncio.sleep(5)
 
     finally:

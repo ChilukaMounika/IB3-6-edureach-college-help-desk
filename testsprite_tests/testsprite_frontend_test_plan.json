@@ -1,8 +1,8 @@
 [
   {
     "id": "TC001",
-    "title": "Send a college question and receive a response",
-    "description": "A visitor can ask a college-related question and see the AI response added to the same conversation.",
+    "title": "Open chat and get an answer to a first question",
+    "description": "A visitor can open the chat from the homepage, ask a first question, and receive an AI response in the same conversation.",
     "category": "College Chatbot",
     "steps": [
       {
@@ -19,48 +19,23 @@
       },
       {
         "type": "action",
-        "description": "Submit the message"
+        "description": "Submit the chat message"
       },
       {
         "type": "assertion",
-        "description": "Verify the sent message appears in the conversation"
+        "description": "Verify the chat conversation shows the user's question"
       },
       {
         "type": "assertion",
-        "description": "Verify an AI response appears in the conversation"
+        "description": "Verify an AI response is displayed in the chat history"
       }
     ],
     "priority": "High"
   },
   {
     "id": "TC002",
-    "title": "Browse the homepage college information",
-    "description": "A visitor can scroll through the landing page and view the college information sections from top to bottom.",
-    "category": "Landing Page",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /"
-      },
-      {
-        "type": "action",
-        "description": "Scroll through the homepage"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify the college information sections are displayed"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify the page presents introductory information about the college"
-      }
-    ],
-    "priority": "High"
-  },
-  {
-    "id": "TC003",
-    "title": "Continue the same chat with a follow-up question",
-    "description": "A visitor can ask a follow-up question and keep the conversation in one continuous thread.",
+    "title": "Continue a chat with a follow-up question",
+    "description": "A visitor can ask a follow-up question in the same open chat thread and see the conversation continue with another relevant AI response.",
     "category": "College Chatbot",
     "steps": [
       {
@@ -77,73 +52,36 @@
       },
       {
         "type": "action",
-        "description": "Submit the message"
+        "description": "Submit the chat message"
       },
       {
         "type": "action",
-        "description": "Fill in the chat input with a follow-up college-related question"
+        "description": "Fill in the chat input with a follow-up question"
       },
       {
         "type": "action",
-        "description": "Submit the message"
+        "description": "Submit the chat message"
       },
       {
         "type": "assertion",
-        "description": "Verify both user messages appear in the conversation"
+        "description": "Verify both user messages remain visible in the chat history"
       },
       {
         "type": "assertion",
-        "description": "Verify the conversation remains in a single thread"
+        "description": "Verify multiple AI responses are displayed in the same conversation"
       }
     ],
     "priority": "High"
   },
   {
-    "id": "TC004",
-    "title": "Open the chat drawer from the homepage",
-    "description": "A visitor can open the floating chat widget from the homepage and see the chat interface appear.",
-    "category": "College Chatbot",
+    "id": "TC003",
+    "title": "Browse the homepage college information",
+    "description": "A visitor can scroll through the landing page and view the college information sections on the single public page.",
+    "category": "Landing Page",
     "steps": [
       {
         "type": "action",
         "description": "Navigate to /"
-      },
-      {
-        "type": "action",
-        "description": "Click the floating chat button"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify the chat drawer is displayed"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify the chat input is available"
-      }
-    ],
-    "priority": "Medium"
-  },
-  {
-    "id": "TC005",
-    "title": "Read the homepage content while using the chat widget",
-    "description": "A visitor can switch between browsing the landing page and chatting without losing access to either experience.",
-    "category": "College Chatbot",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /"
-      },
-      {
-        "type": "action",
-        "description": "Click the floating chat button"
-      },
-      {
-        "type": "action",
-        "description": "Fill in the chat input with a college-related question"
-      },
-      {
-        "type": "action",
-        "description": "Submit the message"
       },
       {
         "type": "action",
@@ -151,19 +89,81 @@
       },
       {
         "type": "assertion",
-        "description": "Verify the chat conversation remains available"
+        "description": "Verify the homepage college information sections are displayed"
       },
       {
         "type": "assertion",
-        "description": "Verify the homepage college content is still accessible"
+        "description": "Verify the landing page remains usable without opening chat"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "See validation for an empty chat message",
+    "description": "A visitor who tries to send an empty chat message sees validation and no message is added to the conversation.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating chat button"
+      },
+      {
+        "type": "action",
+        "description": "Submit the chat message without entering text"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an input validation message is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify no new chat message was added"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC005",
+    "title": "Send a chat message with Enter",
+    "description": "A visitor can send a valid chat message by pressing Enter and see the message appear in the conversation.",
+    "category": "College Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating chat button"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the chat input with a college-related question"
+      },
+      {
+        "type": "action",
+        "description": "Press Enter"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the chat conversation shows the user's message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an AI response is displayed in the chat history"
       }
     ],
     "priority": "Medium"
   },
   {
     "id": "TC006",
-    "title": "View the chat typing and response states",
-    "description": "A visitor can see the chatbot's in-progress state before the answer appears in the conversation.",
+    "title": "Reopen the chat drawer and keep the conversation visible",
+    "description": "A visitor can close and reopen the chat drawer from the floating button and still see the prior conversation.",
     "category": "College Chatbot",
     "steps": [
       {
@@ -180,24 +180,32 @@
       },
       {
         "type": "action",
-        "description": "Submit the message"
+        "description": "Submit the chat message"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating chat button"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating chat button"
       },
       {
         "type": "assertion",
-        "description": "Verify a typing or loading state is visible"
+        "description": "Verify the prior chat messages are still visible"
       },
       {
         "type": "assertion",
-        "description": "Verify the AI response is displayed in the conversation"
+        "description": "Verify the chat remains ready for another message"
       }
     ],
     "priority": "Medium"
   },
   {
     "id": "TC007",
-    "title": "Prevent sending an empty chat message",
-    "description": "A visitor who tries to send an empty message sees validation and the message is not submitted.",
-    "category": "College Chatbot",
+    "title": "Keep browsing the homepage without opening chat",
+    "description": "A visitor can interact with the landing page content only and the single-page experience remains usable without using the chat drawer.",
+    "category": "Landing Page",
     "steps": [
       {
         "type": "action",
@@ -205,52 +213,15 @@
       },
       {
         "type": "action",
-        "description": "Click the floating chat button"
-      },
-      {
-        "type": "action",
-        "description": "Submit the message without entering text"
+        "description": "Scroll through the homepage"
       },
       {
         "type": "assertion",
-        "description": "Verify an input validation message is visible"
+        "description": "Verify the homepage information sections are displayed"
       },
       {
         "type": "assertion",
-        "description": "Verify no message is added to the conversation"
-      }
-    ],
-    "priority": "Low"
-  },
-  {
-    "id": "TC008",
-    "title": "Recover from a failed chat request without losing the conversation",
-    "description": "A visitor sees an error state after a chat submission fails and the existing conversation remains visible.",
-    "category": "College Chatbot",
-    "steps": [
-      {
-        "type": "action",
-        "description": "Navigate to /"
-      },
-      {
-        "type": "action",
-        "description": "Click the floating chat button"
-      },
-      {
-        "type": "action",
-        "description": "Fill in the chat input with a college-related question"
-      },
-      {
-        "type": "action",
-        "description": "Submit the message"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify an error state is visible"
-      },
-      {
-        "type": "assertion",
-        "description": "Verify the conversation remains visible"
+        "description": "Verify the chat drawer is not open"
       }
     ],
     "priority": "Low"
