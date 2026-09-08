@@ -25,4 +25,16 @@ jobs:
 
       - name: Install backend
         working-directory: server
-        run: npm install
+        run: npm install 
+
+        permissions:
+        actions: read
+        contents: read
+        statuses: write
+
+      - name: 'notify vercel'
+        if : always()
+        uses: 'vercel/repository-dispatch/actions/status@v1'
+        with:
+        name: Vercel - ib-3-6-edureach-college-help-desk: lint
+        github_token: ${{ secrets.GITHUB_TOKEN }}
